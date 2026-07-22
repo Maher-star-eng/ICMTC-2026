@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# OS
+.DS_Store
+
+# Editor / Office lock files
+~$*
+
+# Local scratch (empty stray dir, not part of the pipeline)
+/runs/
+
+# Dataset and raw training-run artifacts — large and regenerable.
+# Dataset: re-download from the Roboflow link in training/DATASET.md.
+# Raw runs: regenerate via training/train.py; the staged deliverable
+# (training/models/) is kept and tracked, this is just the byproduct.
+training/flag detection.v1i.yolov11/
+training/runs/

@@ -1,0 +1,21 @@
+{
+    "include": [
+        "vision",
+        "geo",
+        "ioutils",
+        "core",
+        "training",
+        "tests"
+    ],
+    "exclude": [
+        "**/__pycache__",
+        ".venv",
+        "training/runs",
+        "training/flag detection.v1i.yolov11",
+        "untitled folder"
+    ],
+    "venvPath": ".",
+    "venv": ".venv",
+    "pythonVersion": "3.12",
+    "typeCheckingMode": "basic"
+}

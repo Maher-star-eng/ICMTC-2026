@@ -1,0 +1,55 @@
+[247437.504] wrote 10 synthetic frames to training/dry_run_footage
+[247437.508] resolved briefed_target_class_ids=[50, 78, 170, 193] (names=('Egypt', 'Iraq', 'Syria', 'Yemen')), target_flag_class=50
+[247437.508] ======================================================================
+[247437.508] PRIMARY RUN: real trained model (ncnn), real masking, real pipeline
+[247437.508] ======================================================================
+[247437.533] detector built in 0.021s; detector.target_class_ids=[50, 78, 170, 193]
+[247437.533] [PRIMARY] initial state: SEARCHING (frame_idx=0)
+[247442.049] [PRIMARY] frame_idx=266: SEARCHING -> HANDOFF_COMPLETE
+[247442.049] [PRIMARY] acknowledge_handoff() -> DONE
+[247442.050] primary run produced ZERO detections (as anticipated for schematic synthetic footage vs. a model trained on real photos) -> running the secondary wiring-only check
+[247442.050] ======================================================================
+[247442.050] SECONDARY CHECK (stub detector - NOT the real model; see header)
+[247442.050] ======================================================================
+[247442.050] [SECONDARY] initial state: SEARCHING (frame_idx=0)
+[247442.061] [SECONDARY] frame_idx=2: SEARCHING -> TRACKING
+[247446.561] [SECONDARY] frame_idx=2320: TRACKING -> HANDOFF_COMPLETE
+[247446.561] [SECONDARY] acknowledge_handoff() -> DONE
+[247446.561] ======================================================================
+[247446.561] SUMMARY
+[247446.561] ======================================================================
+[247446.561] total wall-clock time: 9.166s
+[247446.561] primary: 266 process_frame calls in 4.516s (58.90 calls/s), 9 distinct frame objects out of 266 detect() calls (of 10 source images)
+[247446.561] primary final_result: MissionResult(status=<MissionStatus.SEARCHING: 'SEARCHING'>, target_flag_class=None, target_coord=None, target_confidence=None, all_flags=(), timestamp=247442.036766083)
+[247446.561] primary target_class_ids: [50, 78, 170, 193]
+[247446.561] primary all_class_ids_seen (should be empty or subset of target ids): []
+[247446.561] primary non_target_leak (must be empty): []
+[247446.561] primary degraded_count: 0
+[247446.561] primary telemetry gap: 61 pose_at() calls returned None (first={'call': 98, 'elapsed': 1.801, 'gap': True, 'lat': None, 'lon': None, 'glitched_gimbal': False}, last={'call': 158, 'elapsed': 2.697, 'gap': True, 'lat': None, 'lon': None, 'glitched_gimbal': False})
+[247446.561] secondary: 2320 process_frame calls in 4.511s (514.31 calls/s)
+[247446.561] secondary final_result: MissionResult(status=<MissionStatus.TARGET_FOUND: 'TARGET_FOUND'>, target_flag_class=50, target_coord=(30.000006021886996, 31.00003803362319), target_confidence=1.0, all_flags=(FlagReport(flag_class=50, coord=(30.000006021886996, 31.00003803362319), track_id=1, confidence=1.0),), timestamp=247446.558414291)
+[247446.561] secondary geolocator_history (final, bounded window): {1: [(30.000006000967417, 31.000038033623184), (30.000006011295543, 31.000038033623188), (30.000006021886996, 31.00003803362319), (30.00000603198283, 31.000038033623195), (30.000006041934498, 31.0000380336232)]}
+[247446.561] secondary degraded_count: 0
+[247446.561] secondary outlier_evidence (single-frame vs median diverging by >50m), 4 such call(s):
+[247446.561]     {'track_id': 1, 'pose_is_none': False, 'single_frame_coord': (30.009738879206612, 31.00074897842395), 'median_coord': (30.000000018756793, 31.00003803362089), 'history_len': 5, 'single_vs_median_m': 1086.2939072079048}
+[247446.561]     {'track_id': 1, 'pose_is_none': False, 'single_frame_coord': (30.009738888802655, 31.00074897842402), 'median_coord': (30.000000028748666, 31.000038033620893), 'history_len': 5, 'single_vs_median_m': 1086.2938632319738}
+[247446.561]     {'track_id': 1, 'pose_is_none': False, 'single_frame_coord': (30.00000153361012, 31.000038033621472), 'median_coord': (30.009740342769533, 31.000748978434995), 'history_len': 5, 'single_vs_median_m': 1086.2886333572837}
+[247446.561]     {'track_id': 1, 'pose_is_none': False, 'single_frame_coord': (30.000001543700122, 31.000038033621475), 'median_coord': (30.009740342769533, 31.000748978434995), 'history_len': 5, 'single_vs_median_m': 1086.2875123758133}
+[247446.561] secondary telemetry gap: 512 pose_at() calls returned None (first={'call': 912, 'elapsed': 1.801, 'gap': True, 'lat': None, 'lon': None, 'glitched_gimbal': False}, last={'call': 1423, 'elapsed': 2.698, 'gap': True, 'lat': None, 'lon': None, 'glitched_gimbal': False})
+[247446.561] secondary gimbal glitch: 148 pose_at() calls returned the glitched (-1deg pitch) gimbal (first={'call': 1725, 'elapsed': 3.302, 'gap': False, 'lat': 30.00001650766083, 'lon': 31.0, 'glitched_gimbal': True}, last={'call': 1872, 'elapsed': 3.598, 'gap': False, 'lat': 30.000017992123954, 'lon': 31.0, 'glitched_gimbal': True})
+[247446.562] primary judge log (training/dry_run_judge_log.json): {
+  "flags": []
+}
+[247446.562] secondary judge log (training/dry_run_judge_log_secondary.json): {
+  "flags": [
+    {
+      "flag_class": 50,
+      "coord": [
+        30.000006021886996,
+        31.00003803362319
+      ],
+      "track_id": 1,
+      "confidence": 1.0
+    }
+  ]
+}
